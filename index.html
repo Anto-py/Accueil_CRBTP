@@ -80,6 +80,7 @@
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-auto-rows: 1fr;
       gap: 1.5rem;
     }
 
@@ -99,6 +100,7 @@
       transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
       position: relative;
       overflow: hidden;
+      height: 100%;
     }
 
     .card::after {
