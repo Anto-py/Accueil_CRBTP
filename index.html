@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accueil CRBTP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --corail:    #F4714A;
+      --violet:    #4B3D8F;
+      --vert:      #3DBE8A;
+      --jaune:     #F5A623;
+      --blanc:     #FFFFFF;
+      --gris-fond: #F4F6FB;
+      --gris-card: #F8F8F8;
+      --texte:     #2D2D2D;
+      --texte-doux:#6B6B8A;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      background: var(--gris-fond);
+      color: var(--texte);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: #3730A3;
+      padding: 1.25rem 2.5rem;
+      text-align: center;
+    }
+
+    .header-img {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .header-img {
+        height: 56px;
+      }
+    }
+
+    /* ── GRILLE ── */
+    main {
+      flex: 1;
+      padding: 2.5rem 2rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texte-doux);
+      margin-bottom: 1.25rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── CARTE ── */
+    .card {
+      background: var(--blanc);
+      border-radius: 20px;
+      border-top: 6px solid var(--accent-color, var(--violet));
+      padding: 2rem 1.5rem 1.75rem;
+      text-decoration: none;
+      color: var(--texte);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent-color, var(--violet));
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
+    }
+
+    .card:hover::after {
+      opacity: 0.04;
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--texte);
+    }
+
+    .card-description {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--texte-doux);
+      line-height: 1.4;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      font-size: 1rem;
+      color: var(--accent-color, var(--violet));
+      font-weight: 700;
+      transition: transform 0.18s ease;
+    }
+
+    .card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* accents individuels */
+    .card--cabanga   { --accent-color: var(--corail); }
+    .card--teams     { --accent-color: var(--violet); }
+    .card--m365      { --accent-color: var(--vert);   }
+    .card--recherche { --accent-color: var(--violet); }
+    .card--wikipedia { --accent-color: var(--vert);   }
+    .card--rtbf      { --accent-color: var(--corail); }
+    .card--canva     { --accent-color: var(--jaune);  }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--texte-doux);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      main {
+        padding: 1.75rem 1.25rem;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .card {
+        padding: 1.5rem 1.1rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="LOGO_CRBTP_FOND_BLEU_2024.png" alt="Collège Roi Baudouin – Enseignement technique et professionnel" class="header-img" />
+  </header>
+
+  <!-- CARTES -->
+  <main>
+    <p class="section-label">Mes outils scolaires</p>
+    <div class="cards-grid">
+
+      <!-- Cabanga -->
+      <a class="card card--cabanga"
+         href="https://app.cabanga.be/"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">📚</span>
+        <span class="card-title">Cabanga</span>
+        <span class="card-description">La plateforme pour consulter mes évaluations, mon journal de classe</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- Teams -->
+      <a class="card card--teams"
+         href="https://teams.microsoft.com/"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">💬</span>
+        <span class="card-title">Teams</span>
+        <span class="card-description">Rejoindre mes classes virtuelles, remettre des travaux et entrer en contact avec mes enseignants</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- Microsoft 365 -->
+      <a class="card card--m365"
+         href="https://www.office.com/?auth=2"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">🔷</span>
+        <span class="card-title">Microsoft 365</span>
+        <span class="card-description">Word, Excel, PowerPoint, OneDrive, Outlook, Copilot,…</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- Recherche -->
+      <a class="card card--recherche"
+         href="https://www.bing.com/search?q=Tendances%20maintenant%20sur%20Bing&form=hpmscl"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">🔍</span>
+        <span class="card-title">Recherche</span>
+        <span class="card-description">Pour explorer le web</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- Wikipédia -->
+      <a class="card card--wikipedia"
+         href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">📖</span>
+        <span class="card-title">Wikipédia</span>
+        <span class="card-description">L'encyclopédie en ligne collaborative</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- RTBF Info -->
+      <a class="card card--rtbf"
+         href="https://www.rtbf.be/"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">📰</span>
+        <span class="card-title">RTBF Info</span>
+        <span class="card-description">L'actu complète, gratuite et de qualité</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <!-- Canva -->
+      <a class="card card--canva"
+         href="https://www.canva.com/"
+         target="_blank" rel="noopener noreferrer">
+        <span class="card-icon">🎨</span>
+        <span class="card-title">Canva</span>
+        <span class="card-description">Créer des visuels, des vidéos et bien d'autres choses</span>
+        <span class="card-arrow">→</span>
+      </a>
+
+    </div>
+  </main>
+
+
+</body>
+</html>
